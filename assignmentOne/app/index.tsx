@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
 
 export default function App() {
   return (
@@ -7,7 +7,9 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.gameConsole}>
         <View style={styles.screen} />
-        <View style={styles.rectButton} />
+        <View style={styles.rectButton}>
+        <Text style={styles.rectButtonText}>Gameboy</Text>
+        </View>
         <View style={styles.buttonContainer}>
           <View style={styles.circleButton} />
           <View style={styles.circleButton} />
@@ -35,12 +37,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
   },
+  // the "gameboy controller" text inside the blue rectangle
+  rectButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
   // the light blue screen overlaid on the gameConsole
   screen: {
     flex: 3,
     backgroundColor: '#22D3EE', // Light blue
     borderRadius: 5,
     marginBottom: 10,
+    borderColor: '#1D4ED8', // Add border
   },
   // the medium blue screen overlaid on the gameConsole
   rectButton: {
