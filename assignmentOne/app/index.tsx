@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   circleButton: {
     width: 40,
     height: 40,
-    backgroundColor: '#065F46', // Green
+    backgroundColor: '#ffb703', // Green
     borderRadius: 20,
   },
 });
