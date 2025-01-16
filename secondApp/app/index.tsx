@@ -1,5 +1,7 @@
-import { Text, View, StyleSheet, Button, TouchableHighlight, Alert, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Button, TouchableHighlight, Alert, TouchableOpacity, Image } from "react-native";
 
+import arizonaDesert from "../assets/images/deserts/arizona-desert.png";
+import MyButton from "./components/MyButton";
 
 export default function Index() {
 
@@ -14,21 +16,27 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hi 4th Hour</Text>
-      <Button title='click me' onPress={() => alert('hi')}/>
-      <TouchableHighlight 
-        style = {styles.highlightButton} 
-        onPress = {() => console.log("Pressed TH")} 
-        underlayColor = 'hotpink'
-      >
-        <Text style={styles.buttontext}> Touchable Highlight</Text>
-      </TouchableHighlight>
-
-      <TouchableOpacity
-        style = {styles.highlightButton} 
-        onPress = {myAlertFn}>
-        <Text>Click to see an alert</Text>
-      </TouchableOpacity>
+      {/* use the /> syntax when you have children that you need to have */}
+      <MyButton />
+      <Image
+        style={styles.imageStyles}
+        source={require("../assets/images/deserts/stock-desert.png")}
+      />
+      <br></br>
+      {/*could also do the below if you want to put an online image */}
+      <Image
+          style={styles.imageStyles}
+          source={{ uri: "https://images.unsplash.com/photo-1735767976699-6096acda642d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }}   
+      />
+      <br></br>
+      <Image
+          style={styles.imageStyles}
+          source={arizonaDesert}   
+      />
     </View>
+
+
+
   );
 }
 
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   text: {
-    fontSize: 10,
+    fontSize: 50,
   },
   highlightButton: {
     height: 50,
@@ -53,5 +61,11 @@ const styles = StyleSheet.create({
   },
   buttontext: {
     fontSize: 18,
+  },
+  imageStyles: {
+    height: 200,
+    width: 300,
+    borderColor: "black",
+    borderWidth: 3 
   }
 });
