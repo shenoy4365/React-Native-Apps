@@ -11,7 +11,7 @@ type propsType = {
   onPress: () => void;
 };
 
-
+// FC = Functional Component 
 const MyButton: React.FC<propsType> = ({
   title,
   color = 'green',

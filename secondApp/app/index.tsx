@@ -2,6 +2,11 @@ import { Text, View, StyleSheet, Button, TouchableHighlight, Alert, TouchableOpa
 
 import arizonaDesert from "../assets/images/deserts/arizona-desert.png";
 import MyButton from "./components/MyButton";
+import IconButton from "./components/IconButton";
+
+// importing access to any icon in the FontAwesome5 Family
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+
 
 export default function Index() {
 
@@ -15,6 +20,14 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <IconButton iconName="snowboarding" />
+      <IconButton iconName="snowflake" color="green" iconSize={30} />
+
+
+      {/* <FontAwesome5 name="snowman" size={24} color="red" />
+      <FontAwesome5 name="adn" size={24} color="blue" />
+      <FontAwesome5 name="amazon" size={24} color="green" /> */}
+
       <Text style={styles.text}>Hi 4th Hour</Text>
       {/* use the /> syntax when you have children that you need to have */}
       <MyButton title='button 1' color="purple" onPress={() => console.log('1')} />
