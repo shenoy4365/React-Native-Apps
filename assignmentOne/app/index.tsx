@@ -1,20 +1,56 @@
 import React from 'react';
 import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
 
+// CircleButton Component
+const CircleButton = ({ color = '#ffb703', size = 50 }: { color?: string; size?: number }) => {
+  return (
+    <View
+      style={[
+        styles.circleButton,
+        {
+          backgroundColor: color,
+          width: size,
+          height: size,
+          borderRadius: size / 2,
+        },
+      ]}
+    />
+  );
+};
+
+// TextButton Component
+const TextButton = ({
+  text,
+  bgColor = '#2563EB',
+  textColor = '#FFFFFF',
+}: {
+  text: string;
+  bgColor?: string;
+  textColor?: string;
+}) => {
+  return (
+    <View style={[styles.rectButton, { backgroundColor: bgColor }]}>
+      <Text style={[styles.rectButtonText, { color: textColor }]}>{text}</Text>
+    </View>
+  );
+};
+
 export default function App() {
   return (
-    // consists of all of the views that make up the screen
     <SafeAreaView style={styles.container}>
       <View style={styles.gameConsole}>
+        {/* Screen */}
         <View style={styles.screen} />
-        <View style={styles.rectButton}>
-        <Text style={styles.rectButtonText}>Gameboy</Text>
-        </View>
+        
+        {/* Gameboy Text Button */}
+        <TextButton text="Gameboy" bgColor="#2563EB" textColor="#FFFFFF" />
+        
+        {/* Circle Buttons */}
         <View style={styles.buttonContainer}>
-          <View style={styles.circleButton} />
-          <View style={styles.circleButton} />
-          <View style={styles.circleButton} />
-          <View style={styles.circleButton} />
+          <CircleButton color="#FACC15" />
+          <CircleButton color="#FACC15" />
+          <CircleButton color="#FACC15" />
+          <CircleButton color="#FACC15" />
         </View>
       </View>
     </SafeAreaView>
@@ -22,57 +58,48 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  // container that "contains" all of the elements
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2E3440',
+    backgroundColor: '#2E3440', // Dark background
   },
-  // large blue rectangle in the background
   gameConsole: {
-    width: 200,
-    height: 350,
+    width: 250,
+    height: 450,
     backgroundColor: '#1D4ED8', // Deep blue
-    borderRadius: 10,
-    padding: 10,
-  },
-  // the "gameboy controller" text inside the blue rectangle
-  rectButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    justifyContent: 'center',
-  },
-  // the light blue screen overlaid on the gameConsole
-  screen: {
-    flex: 3,
-    backgroundColor: '#22D3EE', // Light blue
-    borderRadius: 5,
-    marginBottom: 10,
-    borderColor: '#1D4ED8', // Add border
-  },
-  // the medium blue screen overlaid on the gameConsole
-  rectButton: {
-    flex: 0.5,
-    backgroundColor: '#2563EB', // Medium blue
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  // button container in order to horizontally (by row) align the circles
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
+    borderRadius: 20,
+    padding: 20,
     alignItems: 'center',
   },
-  // the different circle buttons overlaid on the gameConsole
+  screen: {
+    width: '100%',
+    height: 200,
+    backgroundColor: '#22D3EE', // Light blue
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  rectButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  rectButton: {
+    width: '100%',
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
   circleButton: {
-    width: 40,
-    height: 40,
-    backgroundColor: '#ffb703', // Green
-    borderRadius: 20,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
 });
