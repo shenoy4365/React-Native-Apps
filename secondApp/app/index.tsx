@@ -6,6 +6,8 @@ import IconButton from "./components/IconButton";
 
 // importing access to any icon in the FontAwesome5 Family
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Counter from "./components/Counter";
+import TextField from "./components/TextField";
 
 
 export default function Index() {
@@ -20,8 +22,10 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <IconButton iconName="snowboarding" />
-      <IconButton iconName="snowflake" color="green" iconSize={30} />
+      <TextField />
+      <Counter />
+      <IconButton iconName="snowboarding" onPress={() => console.log('SB icon clicked')} />
+      <IconButton iconName="snowflake" onPress={() => console.log('SF icon clicked')} color="green" iconSize={30} />
 
 
       {/* <FontAwesome5 name="snowman" size={24} color="red" />
