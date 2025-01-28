@@ -1,21 +1,40 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import QuestionSwiper from "../components/QuestionSwiper";
+import React, { useState } from "react";
+import { View, Text, Button } from "react-native";
+import { defaultStyles } from "../styles/defaultStyles";
+import { QuoteCard } from "../components/QuoteCard";
+import { FavoriteQuotesList } from "../components/FavoriteQuotesList";
+import colors from "@/styles/colors";
 
-export default function Index() {
+const App = () => {
+  const [quote, setQuote] = useState("The only limit to our realization of tomorrow is our doubts of today.");
+  const [author, setAuthor] = useState("Franklin D. Roosevelt");
+  const [favorites, setFavorites] = useState<{ quote: string; author?: string }[]>([]);
+
+  const randomQuotes = [
+    { quote: "Life is what happens when you’re busy making other plans.", author: "John Lennon" },
+    { quote: "Get busy living or get busy dying.", author: "Stephen King" },
+    { quote: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+    { quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+  ];
+
+  const getNewQuote = () => {
+    const random = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
+    setQuote(random.quote);
+    setAuthor(random.author);
+  };
+
+  const addToFavorites = () => {
+    setFavorites([...favorites, { quote, author }]);
+  };
+
   return (
-    <View style={styles.container}>
-      <QuestionSwiper />
+    <View style={[defaultStyles.container, { backgroundColor: colors.background }]}>
+      <Text style={defaultStyles.heading}>Random Quote Generator</Text>
+      <QuoteCard quote={quote} author={author} onFavorite={addToFavorites} />
+      <Button title="New Quote" color={colors.primary} onPress={getNewQuote} />
+      <FavoriteQuotesList favorites={favorites} />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#DAD7CD", // coolors color scheme
-    alignContent: 'center'
-  },
-});
+export default App;

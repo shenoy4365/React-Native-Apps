@@ -1,16 +1,13 @@
 const colors = {
-    primary: "#DAD7CD", // Light tan
-    secondary: "#A3B18A", // Olive green
-    accent: "#588157", // Forest green
-    darkGreen: "#3A5A40", // Deep green
-    darkerGreen: "#344E41", // Very dark green
-    background: "#DAD7CD",
-    error: "#da4167",
-    text: {
-      light: "#FFFFFF", // Light text for contrast
-      dark: "#344E41", // Dark green text
-    },
-  };
-  
-  export default colors;
-  
+  primary: "#187bcd", // Slate Blue
+  secondary: "#ff6347", // Tomato Red
+  accent: "#ffa500", // Orange
+  background: "#f5f5f5", // Light Gray
+  error: "#e74c3c", // Bright Red
+  text: {
+    light: "#FFFFFF", // White text for contrast
+    dark: "#333333", // Dark text
+  },
+};
+
+export default colors;
