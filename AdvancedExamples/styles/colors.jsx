@@ -9,5 +9,3 @@ const colors = {
     dark: "#333333", // Dark text
   },
 };
-
-export default colors;

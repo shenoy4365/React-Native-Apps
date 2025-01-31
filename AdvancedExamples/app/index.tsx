@@ -15,7 +15,17 @@ const App = () => {
     { quote: "Get busy living or get busy dying.", author: "Stephen King" },
     { quote: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
     { quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
-  ];
+    { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { quote: "In the end, we will remember not the words of our enemies, but the silence of our friends.", author: "Martin Luther King Jr." },
+    { quote: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { quote: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" },
+    { quote: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", author: "Ralph Waldo Emerson" },
+    { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+    { quote: "It’s not whether you get knocked down, it’s whether you get up.", author: "Vince Lombardi" },
+    { quote: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { quote: "The only way to achieve the impossible is to believe it is possible.", author: "Charles Kingsleigh" }
+];
+
 
   const getNewQuote = () => {
     const random = randomQuotes[Math.floor(Math.random() * randomQuotes.length)];
